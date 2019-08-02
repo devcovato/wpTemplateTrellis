@@ -116,13 +116,17 @@ Vagrant.configure('2') do |config|
     end
   end
 
+  # install pip
   $script = <<-SCRIPT
-set -e
-set -x
-# check pip available
-if ! [ -x "$(command -v pip)" ]; then
-  sudo apt-get -yy install python-pip
-fi
+  set -e
+
+  # check pip available
+  if ! command -v pip > /dev/null 2>&1 ; then
+    sudo apt-get update
+    sudo apt-get -yy install python-pip
+  else
+    echo "pip was already installed"
+  fi
 SCRIPT
   config.vm.provision "shell", inline: $script
 
