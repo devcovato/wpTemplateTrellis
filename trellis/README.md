@@ -58,7 +58,7 @@ Ansible playbooks for setting up a LEMP stack for WordPress.
 
 Trellis will configure a server with the following and more:
 
-- Ubuntu 18.04 Bionic LTS
+- Ubuntu 20.04 Focal LTS
 - Nginx (with optional FastCGI micro-caching)
 - PHP 7.4
 - MariaDB (a drop-in MySQL replacement)
@@ -233,7 +233,7 @@ Contributions are welcome from everyone. We have [contributing guidelines](https
 
 Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
 
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a>
+<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a>
 
 ## Community
 
