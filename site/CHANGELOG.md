@@ -1,3 +1,49 @@
+### 1.21.1: 2022-11-16
+* ⬆️ Bump roots/wordpress to v6.1.1 ([#659](https://github.com/roots/bedrock/pull/659))
+
+### 1.21.0: 2022-11-01
+* ➕ Replace `twentytwentytwo` with `twentytwentythree` ([#655](https://github.com/roots/bedrock/pull/655))
+* ⬆️ Bump roots/wordpress to v6.1 ([#654](https://github.com/roots/bedrock/pull/654))
+
+### 1.20.3: 2022-10-18
+* Bump roots/wordpress from 6.0.2 to 6.0.3 ([#652](https://github.com/roots/bedrock/pull/652))
+
+### 1.20.2: 2022-08-31
+* Bump roots/wordpress from 6.0.1 to 6.0.2 ([#648](https://github.com/roots/bedrock/pull/648))
+* Bump composer/installers from 2.1.1 to 2.2.0 ([#646](https://github.com/roots/bedrock/pull/646))
+
+### 1.20.1: 2022-07-19
+* Bump roots/wordpress from 6.0.0 to 6.0.1 ([#644](https://github.com/roots/bedrock/pull/644))
+* doc: instructions for installing "source" packages ([#641](https://github.com/roots/bedrock/pull/641))
+* Bump squizlabs/php_codesniffer from 3.6.2 to 3.7.1 ([#643](https://github.com/roots/bedrock/pull/643))
+* Bump composer/installers from 2.1.0 to 2.1.1 ([#635](https://github.com/roots/bedrock/pull/635))
+
+### 1.20.0: 2022-05-24
+* Update to WordPress 6.0, add Twenty Twenty-Two theme as dependency ([#639](https://github.com/roots/bedrock/pull/639))
+
+### 1.19.3: 2022-04-06
+* Bump roots/wordpress to 5.9.3 ([#633](https://github.com/roots/bedrock/pull/633))
+* Bump composer/installers from 2.0.1 to 2.1.0 ([#632](https://github.com/roots/bedrock/pull/632))
+
+### 1.19.2: 2022-03-11
+* Bump roots/wordpress to 5.9.2 ([#631](https://github.com/roots/bedrock/pull/631))
+
+### 1.19.1: 2022-02-23
+* Bump roots/wordpress to 5.9.1 ([#626](https://github.com/roots/bedrock/pull/630))
+
+### 1.19.0: 2022-01-25
+* Bump roots/wordpress to 5.9 ([#626](https://github.com/roots/bedrock/pull/626))
+* Bump squizlabs/php_codesniffer from 3.6.1 to 3.6.2 ([#623](https://github.com/roots/bedrock/pull/623))
+* Bump vlucas/phpdotenv from 5.3.1 to 5.4.1 ([#622](https://github.com/roots/bedrock/pull/622))
+* Bump composer/installers from 1.12.0 to 2.0.1 ([#621](https://github.com/roots/bedrock/pull/621))
+
+### 1.18.1: 2022-01-07
+* Bump roots/wordpress from 5.8.2 to 5.8.3 ([#625](https://github.com/roots/bedrock/pull/625))
+* chore(deps): allow required composer plugins ([#624](https://github.com/roots/bedrock/pull/624))
+
+### 1.18.0: 2021-12-06
+* Bump requirements to PHP 7.4 ([#619](https://github.com/roots/bedrock/pull/619))
+
 ### 1.17.1: 2021-11-16
 * Bump roots/wordpress from 5.8.1 to 5.8.2 ([#615](https://github.com/roots/bedrock/pull/615))
 
