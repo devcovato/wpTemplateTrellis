@@ -1,15 +1,11 @@
-from __future__ import (absolute_import, division, print_function)
-__metaclass__ = type
-
 import re
 import sys
+import os
 
-from __main__ import cli
 from ansible.module_utils.six import iteritems
 from ansible.errors import AnsibleError
 from ansible.parsing.yaml.objects import AnsibleMapping, AnsibleSequence, AnsibleUnicode
 from ansible.playbook.play_context import PlayContext
-from ansible.playbook.task import Task
 from ansible.plugins.callback import CallbackBase
 from ansible.template import Templar
 from ansible.utils.unsafe_proxy import wrap_var
@@ -94,6 +90,8 @@ class CallbackModule(CallbackBase):
             return True
 
     def v2_playbook_on_play_start(self, play):
+        play_context = PlayContext(play=play)
+
         env = play.get_variable_manager().get_vars(play=play).get('env', '')
         env_group = next((group for key,group in iteritems(play.get_variable_manager()._inventory.groups) if key == env), False)
         if env_group:
@@ -102,7 +100,6 @@ class CallbackModule(CallbackBase):
         for host in play.get_variable_manager()._inventory.list_hosts(play.hosts[0]):
             hostvars = play.get_variable_manager().get_vars(play=play, host=host)
             self.raw_vars(play, host, hostvars)
-            host.vars['ssh_args_default'] = PlayContext(play=play)._ssh_args.default
             host.vars['cli_options'] = self.cli_options()
             host.vars['cli_ask_pass'] = self._options.get('ask_pass', False)
             host.vars['cli_ask_become_pass'] = self._options.get('become_ask_pass', False)
