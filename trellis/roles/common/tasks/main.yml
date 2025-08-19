@@ -41,14 +41,14 @@
   vars:
     params:
       files:
-        - '{{ php_version }}.yml'
-        - '7.4.yml'
+        - '{{ php_version }}.yml' # e.g. 8.2.yml
+        - version-specific-defaults.yml
       paths:
         - "{{ playbook_dir }}/roles/php/vars/"
 
-  tags: [php, memcached]
+  tags: [memcached, php, sshd]
 
-- name: Verify dict format for apt package component variables
+- name: Verify dict format for package component variables
   fail:
     msg: "{{ lookup('template', 'package_vars_wrong_format_msg.j2') }}"
   when: package_vars_wrong_format | count
@@ -63,9 +63,9 @@
       sshd_packages_default: "{{ sshd_packages_default }}"
       sshd_packages_custom: "{{ sshd_packages_custom }}"
     package_vars_wrong_format: "[{% for k,v in package_vars.items() | list if v | type_debug != 'dict' %}'{{ k }}',{% endfor %}]"
-  tags: [sshd, memcached, php]
+  tags: [memcached, php, sshd]
 
-- name: Verify dict format for apt package combined variables
+- name: Verify dict format for package combined variables
   fail:
     msg: "{{ lookup('template', 'package_vars_wrong_format_msg.j2') }}"
   when: package_vars_wrong_format | count
@@ -76,7 +76,7 @@
       php_extensions: "{{ php_extensions }}"
       sshd_packages: "{{ sshd_packages }}"
     package_vars_wrong_format: "[{% for k,v in package_vars.items() | list if v | type_debug != 'dict' %}'{{ k }}',{% endfor %}]"
-  tags: [sshd, memcached, php]
+  tags: [memcached, php, sshd]
 
 - name: Validate Ubuntu version
   debug:
@@ -137,6 +137,10 @@
   when: openssh_6_8_plus and validate_ssh | default(true)
   tags: [sshd]
 
+- name: Clean old APT sources
+  import_tasks: clean-apt-sources.yml
+  when: apt_clean_sources | default(false)
+
 - name: Update apt packages
   apt:
     update_cache: yes
@@ -170,11 +174,11 @@
     regexp: ^(hosts\:((?!myhostname).)*)$
     state: present
 
-- name: Generate SSH key for vagrant user
+- name: Generate SSH key for vagrant user for ansible_local provisioning
   user:
     name: vagrant
     generate_ssh_key: yes
-  when: env == 'development'
+  when: vagrant_local_provisioning | default(false)
 
 - block:
     - name: Retrieve SSH client IP

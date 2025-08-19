@@ -1,3 +1,62 @@
+### 1.23.0: September 11th, 2024
+* Ubuntu 24.04 support [#1519](https://github.com/roots/trellis/pull/1519)
+* Update MariaDB to 10.11 [#1520](https://github.com/roots/trellis/pull/1520)
+* Update WP-CLI to v2.11.0 [#1533](https://github.com/roots/trellis/pull/1533)
+* Update dependency ntp to v2.5.0 [#1541](https://github.com/roots/trellis/pull/1541)
+* Update dependency swapfile to v2.0.38 [#1540](https://github.com/roots/trellis/pull/1540)
+* Update dependency composer to v1.9.2 [#1539](https://github.com/roots/trellis/pull/1539)
+* Conditionally add HTTPS inbound allow firewall rule [#1530](https://github.com/roots/trellis/pull/1530)
+* Use `http2` and `http3` nginx directives [#1529](https://github.com/roots/trellis/pull/1529)
+* Fix tags for common variable validations [#1544](https://github.com/roots/trellis/pull/1544)
+* Allow overriding 'pm' in PHP-FPM's pool config [#1542](https://github.com/roots/trellis/pull/1542)
+* Prevent warnings running composer as root [#1527](https://github.com/roots/trellis/pull/1527)
+* Fix undefined method `exists?` error [#1524](https://github.com/roots/trellis/pull/1524)
+
+### 1.22.1: May 30th, 2024
+* Fix Nginx apt-key is deprecated failure [#1518](https://github.com/roots/trellis/pull/1518)
+
+### 1.22.0: April 24th, 2024
+* Fix MariaDB apt-key is deprecated failure [#1515](https://github.com/roots/trellis/pull/1515)
+* Default to PHP 8.2, add PHP 8.3 support [#1514](https://github.com/roots/trellis/pull/1514)
+* Add PHP JIT and enable it by default [#1505](https://github.com/roots/trellis/pull/1505)
+* Update wp_cli_version to 2.9.0 [#1508](https://github.com/roots/trellis/pull/1508)
+* Add `cron` to default `apt` packages [#1506](https://github.com/roots/trellis/pull/1506)
+* Enable PHP OPCache overwrites for `max_wasted_percentage` & `huge_code_pages` [#1503](https://github.com/roots/trellis/pull/1503)
+* Add MariaDB server config for optimizatons [#1497](https://github.com/roots/trellis/pull/1497)
+* Add PHP-FPM conf and tuning settings [#1496](https://github.com/roots/trellis/pull/1496)
+* CLI config updates [#1486](https://github.com/roots/trellis/pull/1486)
+* Update Bitbucket Cloud SSH Host Keys [#1492](https://github.com/roots/trellis/pull/1492)
+* Add Libvirt to the Vagrant config file [#1490](https://github.com/roots/trellis/pull/1490)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.21.0...v1.22.0
+
+### 1.21.0: April 5th, 2023
+* Add optional PHP 8.2 support [#1485](https://github.com/roots/trellis/pull/1485)
+* Default to PHP 8.1 [#1484](https://github.com/roots/trellis/pull/1484)
+* Use appropriate mount_option for 'parallels' provider [#1481](https://github.com/roots/trellis/pull/1481)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.20.1...v1.21.0
+
+### 1.20.1: March 7th, 2023
+* Fix invalid arg error in ferm task [#1480](https://github.com/roots/trellis/pull/1480)
+* Fix `ansible_user` references for local provisioning [#1479](https://github.com/roots/trellis/pull/1479)
+* Fix HSTS header by trimming whitespace [#1478](https://github.com/roots/trellis/pull/1478)
+* Replace MailHog with Mailpit [#1474](https://github.com/roots/trellis/pull/1474)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.20.0...v1.20.1
+
+### 1.20.0: February 12th, 2023
+* Set development web_user to ansible_user [#1464](https://github.com/roots/trellis/pull/1464)
+* Update boxes to Ubuntu 22.04 [#1461](https://github.com/roots/trellis/pull/1461)
+* Composer Authentications: Fix `loop_var` already in use issue [#1469](https://github.com/roots/trellis/pull/1469)
+* Install wp as the default user [#1470](https://github.com/roots/trellis/pull/1470)
+* Allow non-default upload_path [#1471](https://github.com/roots/trellis/pull/1471)
+* Vagrant: disable NFS udp by default [#1472](https://github.com/roots/trellis/pull/1472)
+* Run SSH key generate task for local provision only [#1473](https://github.com/roots/trellis/pull/1473)
+* Disable xmlrpc by default [#1467](https://github.com/roots/trellis/pull/1467)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.19.0...v1.20.0
+
 ### 1.19.0: January 2nd, 2023
 * Composer Authentication: Add support for `bearer`, `gitlab-oauth`, `gitlab-token`, `github-oauth` and `bitbucket-oauth` principles [#1413](https://github.com/roots/trellis/pull/1413)
 * Prevent ansible-core 2.13.6 [#1448](https://github.com/roots/trellis/pull/1448)

@@ -1,0 +1,39 @@
+name: WP-CLI version check
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-wp-cli-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get latest WP-CLI version
+        id: get-version
+        run: |
+          LATEST_VERSION=$(gh release view --repo wp-cli/wp-cli --json 'tagName' --template '{{slice .tagName 1}}')
+          echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Update wp_cli_version
+        run: |
+          sed -i "s/wp_cli_version: .*/wp_cli_version: ${{ steps.get-version.outputs.LATEST_VERSION }}/" roles/wp-cli/defaults/main.yml
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update WP-CLI version to ${{ steps.get-version.outputs.LATEST_VERSION }}
+          title: Update WP-CLI version to ${{ steps.get-version.outputs.LATEST_VERSION }}
+          body: |
+            This PR updates the WP-CLI version to the latest release (${{ steps.get-version.outputs.LATEST_VERSION }}).
+          branch: update-wp-cli-version
+          delete-branch: true

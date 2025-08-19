@@ -65,6 +65,8 @@ end
 def mount_options(mount_type, dmode:, fmode:)
   if mount_type == 'smb'
     ["vers=3.02", "mfsymlinks", "dir_mode=0#{dmode}", "file_mode=0#{fmode}", "sec=ntlm"]
+  elsif mount_type == 'parallels'
+    ["share"]
   else
     ["dmode=#{dmode}", "fmode=#{fmode}"]
   end
@@ -103,7 +105,7 @@ def update_ssh_config(main_hostname)
   config_file = File.expand_path('~/.ssh/config')
   vagrant_ssh_config = `vagrant ssh-config --host #{main_hostname}`.chomp
 
-  if File.exists?(config_file)
+  if File.exist?(config_file)
     FileUtils.cp(config_file, "#{config_file}.trellis_backup")
     ssh_config = File.read(config_file)
 
